@@ -71,18 +71,14 @@
                         android:textSize="14sp"
                         android:layout_marginBottom="6dp"/>
 
-                    <FrameLayout
+                    <Spinner
+                        android:id="@+id/spinnerDetailMonth"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:background="@android:drawable/btn_dropdown"
-                        android:layout_marginBottom="16dp">
-                        <Spinner
-                            android:id="@+id/spinnerDetailMonth"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:entries="@array/months_array"
-                            android:spinnerMode="dropdown"/>
-                    </FrameLayout>
+                        android:entries="@array/months_array"
+                        android:spinnerMode="dropdown"
+                        android:layout_marginBottom="16dp"/>
 
                     <!-- Electricity Unit (kWh) Field -->
                     <TextView
