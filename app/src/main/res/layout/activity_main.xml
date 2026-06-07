@@ -3,86 +3,116 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Instruction: Select month, enter kWh (1-1000), adjust rebate, and calculate."
-        android:textColor="@color/primaryDarkColor"
-        android:textStyle="italic"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Month:" />
-    <Spinner
-        android:id="@+id/spinnerMonth"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:entries="@array/months_array"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Electricity Unit (kWh):"
-        android:layout_marginTop="8dp"/>
-    <EditText
-        android:id="@+id/etKwh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Min 1 - Max 1000" />
-
-    <TextView
-        android:id="@+id/tvRebateLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rebate Percentage: 0%"
-        android:layout_marginTop="8dp"/>
-    <SeekBar
-        android:id="@+id/seekRebate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="5"
-        android:progress="0" />
-
-    <Button
-        android:id="@+id/btnCalculate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calculate &amp; Save"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/primaryColor"/>
-
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp">
-        <Button
-            android:id="@+id/btnViewHistory"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        android:background="@color/primaryColor"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="App Logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View Records"
-            android:layout_marginEnd="4dp"/>
-        <Button
-            android:id="@+id/btnAbout"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:text="Electric Bill Estimator"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="About Page"
-            android:layout_marginStart="4dp"/>
+            android:text="Instruction: Select month, enter kWh (1-1000), adjust rebate, and calculate."
+            android:textColor="@color/primaryDarkColor"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Month:" />
+        <Spinner
+            android:id="@+id/spinnerMonth"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:entries="@array/months_array"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electricity Unit (kWh):"
+            android:layout_marginTop="8dp"/>
+        <EditText
+            android:id="@+id/etKwh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Min 1 - Max 1000" />
+
+        <TextView
+            android:id="@+id/tvRebateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rebate Percentage: 0%"
+            android:layout_marginTop="8dp"/>
+        <SeekBar
+            android:id="@+id/seekRebate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="5"
+            android:progress="0" />
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate &amp; Save"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/primaryColor"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+            <Button
+                android:id="@+id/btnViewHistory"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="View Records"
+                android:layout_marginEnd="4dp"/>
+            <Button
+                android:id="@+id/btnAbout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="About Page"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
