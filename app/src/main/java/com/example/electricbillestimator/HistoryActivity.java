@@ -20,6 +20,12 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
         listView = findViewById(R.id.listView);
         db = new DBHelper(this);
+
+        // Optional Back Arrow Setup
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Saved Calculations");
+        }
     }
 
     @Override
@@ -34,24 +40,38 @@ public class HistoryActivity extends AppCompatActivity {
         listIds = new ArrayList<>();
 
         if (cursor.getCount() == 0) {
-            listData.add("No records found.");
+            listData.add("No calculation records found.");
         } else {
             while (cursor.moveToNext()) {
                 listIds.add(cursor.getInt(0));
-                String display = "Month: " + cursor.getString(1) + " | Final Cost: RM " + String.format("%.2f", cursor.getDouble(5));
+                // Enhanced, cleaner typography output string
+                String display = cursor.getString(1) + " Record  •  Final Cost: RM " + String.format("%.2f", cursor.getDouble(5));
                 listData.add(display);
             }
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
+        // Custom Layout Mapping (Using list_item_history & tvHistoryRowText target id)
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                R.layout.list_item_history,
+                R.id.tvHistoryRowText,
+                listData
+        );
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
+            // Guard clause to prevent navigation attempt on click if empty message row is visible
             if (listIds.size() > 0) {
                 Intent intent = new Intent(HistoryActivity.this, DetailActivity.class);
                 intent.putExtra("BILL_ID", listIds.get(position));
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

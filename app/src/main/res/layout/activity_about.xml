@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#F5F7FA">
 
+    <!-- Custom Top Header Bar Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/primaryColor"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:elevation="4dp">
 
         <ImageView
             android:layout_width="40dp"
@@ -28,117 +33,221 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- Scrollable Body Content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:padding="16dp">
 
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/profile"
-                android:layout_gravity="center"
+            <!-- Card 1: Student Information Profile Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:contentDescription="Student Profile Picture"/>
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
 
-            <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center_horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#E0E0E0">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/profile"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="Student Profile Picture"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MUHAMMAD HAZIQ BIN MOKHTAR"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Student ID: 2024212338"
+                        android:textSize="14sp"
+                        android:textColor="#666666"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ICT602 Mobile Technology &amp; Development"
+                        android:textSize="13sp"
+                        android:textColor="#666666"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center" />
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="1dp"
+                        android:background="#E0E0E0"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- GitHub Repository Link -->
+                    <TextView
+                        android:id="@+id/tvGithubLink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_url"
+                        android:textColor="#1976D2"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:autoLink="web"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 2: Streamlined Application User Guide -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Student Name: MUHAMMAD HAZIQ BIN MOKHTAR"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="center" />
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Student ID: 2024212338"
-                android:textSize="16sp"
-                android:layout_marginTop="8dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Course: ICT602 Mobile Technology and Development"
-                android:textSize="16sp"
-                android:layout_marginTop="8dp"
-                android:gravity="center" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="How To Use the Application"
+                        android:textColor="@color/primaryColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
 
-            <TextView
-                android:id="@+id/tvGithubLink"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/about_url"
-                android:textColor="#1976D2"
-                android:layout_marginTop="24dp"
-                android:autoLink="web"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E0E0E0"
+                        android:layout_marginBottom="16dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Application Instructions:"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#0D47A1"
-                android:layout_marginTop="24dp"
-                android:gravity="center" />
+                    <!-- Step 1 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Select Billing Month"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Choose your desired billing month from the dropdown menu."
+                        android:textColor="#666666"
+                        android:textSize="13sp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="12dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1. Select Month:\nChoose the appropriate billing month from the dropdown menu."
-                android:textSize="14sp"
-                android:layout_marginTop="12dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
+                    <!-- Step 2 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2. Enter Unit Consumption"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Input your electricity usage value. It must fall within the range of 1 to 1000 kWh."
+                        android:textColor="#666666"
+                        android:textSize="13sp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="12dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2. Enter Units (kWh):\nType your electricity unit consumption. Note that the input must be a valid number between 1 and 1000 kWh."
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
+                    <!-- Step 3 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3. Set Rebate Rate"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Adjust the seeker slider to apply a custom rebate percentage between 0% and 5%."
+                        android:textColor="#666666"
+                        android:textSize="13sp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="12dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="3. Adjust Rebate:\nSlide the bar to select a rebate rate between 0% and 5%."
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
+                    <!-- Step 4 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4. Calculate &amp; Save Records"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tap 'Calculate' to see the costs. If correct, the 'Save Record' option will unlock to log it into your storage history."
+                        android:textColor="#666666"
+                        android:textSize="13sp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="12dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="4. Calculate &amp; Save:\nTap the calculate button to instantly view the calculated total charges and the final cost breakdown. This action automatically saves the data to the local database."
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
+                    <!-- Step 5 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5. Manage Logs History"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tap 'View Records' to browse logs. Select any list item entry to easily update calculations or safely delete the row."
+                        android:textColor="#666666"
+                        android:textSize="13sp"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="5. Manage Records:\nTap 'View Records' to open your history. Tap any historical record item to view its details, edit the inputs, or completely delete it."
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp" />
-
+            <!-- Bottom Static System Copyright Notice Banner -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="© 2026. All Rights Reserved."
+                android:textColor="#999999"
+                android:textSize="12sp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp"
                 android:textStyle="italic"/>
 
         </LinearLayout>
